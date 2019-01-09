@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './tic-tac-toe.css';
 
+import axios from 'axios'
+
 
 
 // class Square extends React.Component {
@@ -92,7 +94,10 @@ class Game extends React.Component {
             }],
             stepNumber: 0,
             xIsNext: true,
+
+            username: 'nobody',
         };
+        this.handleClickSave = this.handleClickSave.bind(this);
     }
 
     handleClick(i) {
@@ -112,6 +117,11 @@ class Game extends React.Component {
             stepNumber: history.length,
             xIsNext: !this.state.xIsNext,
         });
+    }
+
+    handleClickSave () {
+        axios.get('https://api.github.com/users/maecapozzi')
+            .then(response => this.setState({username: response.data.name}))
     }
 
     jumpTo(step) {
@@ -157,7 +167,13 @@ class Game extends React.Component {
                     <div>{status}</div>
                     <ol>{moves}</ol>
                 </div>
+
+                <div className="game-info">
+                    <button className='button' onClick={this.handleClickSave}>Save</button>
+                    <p>{this.state.username}</p>
+                </div>
             </div>
+
         );
     }
 }
