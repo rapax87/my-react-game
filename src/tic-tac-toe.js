@@ -4,7 +4,9 @@ import './tic-tac-toe.css';
 
 import axios from 'axios'
 
-const requestURL= '';
+// config variables
+const config = require('./config.json');
+const requestURL= config.requestURL;
 
 // class Square extends React.Component {
 //     render() {
