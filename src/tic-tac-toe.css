@@ -21,15 +21,16 @@ ol, ul {
     background: #fff;
     border: 1px solid #999;
     float: left;
-    font-size: 24px;
+    font-size: 240px;
     font-weight: bold;
+    color: blue;
     line-height: 34px;
-    height: 34px;
+    height: 170px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 34px;
+    width: 170px;
 }
 
 .square:focus {
@@ -47,4 +48,20 @@ ol, ul {
 
 .game-info {
     margin-left: 20px;
+
+    font-size: 20px;
+}
+
+.move-button {
+    height:30px;
+    width:200px;
+    font-size: 20px;
+    color: red;
+}
+
+.access-button {
+    height:30px;
+    width:200px;
+    font-size: 20px;
+    color: green;
 }
