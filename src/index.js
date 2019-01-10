@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import ShoppingList from './ShoppingList';
+// import ShoppingList from './ShoppingList';
 import * as serviceWorker from './serviceWorker';
 import Game from "./tic-tac-toe";
 

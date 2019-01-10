@@ -4,7 +4,7 @@ import './tic-tac-toe.css';
 
 import axios from 'axios'
 
-
+const requestURL= '';
 
 // class Square extends React.Component {
 //     render() {
@@ -95,9 +95,10 @@ class Game extends React.Component {
             stepNumber: 0,
             xIsNext: true,
 
-            username: 'nobody',
+            username: '',
         };
         this.handleClickSave = this.handleClickSave.bind(this);
+        this.handleClickLoad = this.handleClickLoad.bind(this);
     }
 
     handleClick(i) {
@@ -120,8 +121,27 @@ class Game extends React.Component {
     }
 
     handleClickSave () {
-        axios.get('https://api.github.com/users/maecapozzi')
-            .then(response => this.setState({username: response.data.name}))
+        axios.post(requestURL, {
+            state: JSON.stringify(this.state)
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }
+
+    handleClickLoad () {
+         axios.get(requestURL)
+        .then(response => this.setState({
+            history: JSON.parse(response.data[0].state).history,
+            stepNumber: JSON.parse(response.data[0].state).stepNumber,
+            xIsNext: (JSON.parse(response.data[0].state).stepNumber % 2) === 0
+        }));
+
+
     }
 
     jumpTo(step) {
@@ -170,7 +190,12 @@ class Game extends React.Component {
 
                 <div className="game-info">
                     <button className='button' onClick={this.handleClickSave}>Save</button>
-                    <p>{this.state.username}</p>
+                    {/*<p>{this.state.username}</p>*/}
+                </div>
+
+                <div className="game-info">
+                    <button className='button' onClick={this.handleClickLoad}>Load</button>
+                    {/*<p>{this.state.username}</p>*/}
                 </div>
             </div>
 
