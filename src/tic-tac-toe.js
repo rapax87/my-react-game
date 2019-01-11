@@ -124,6 +124,7 @@ class Game extends React.Component {
 
     handleClickSave () {
         axios.post(requestURL, {
+            id: "1",
             state: JSON.stringify(this.state)
         })
             .then(function (response) {

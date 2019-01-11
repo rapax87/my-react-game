@@ -8,7 +8,8 @@ exports.writeGame = function(event, context, callback){
     var params = {
         Item : {
             // "id" : uuid.v1(),
-            "id" : "1",
+            // "id" : "1",
+            "id" : event.id,
             "state" : event.state
         },
         TableName : process.env.TABLE_NAME
