@@ -6,6 +6,12 @@ Firstly, deploy AWS functions, refer to
 
 ### `cat aws-deploy/aws-rest-with-dynamodb-games/README.md`
 
+Create config.json in src directory.
+
+`{
+   "requestURL" : "https://XXXXXXXXXXXX.execute-api.ap-southeast-2.amazonaws.com/dev/games"
+ }`
+
 In the project directory, you can run:
 
 ### `npm start`
