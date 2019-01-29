@@ -17,3 +17,4 @@ exports.readAllGames = function(event, context, callback){
 }
 
 // node.js.6.10
+// config manually http://www.blog.labouardy.com/create-a-serverless-rest-api-with-node-js-aws-lambda-dynamodb-api-gateway/
